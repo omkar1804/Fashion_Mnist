@@ -1,0 +1,2 @@
+PORT=5000
+ON_HEROKU=False

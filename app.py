@@ -15,6 +15,10 @@ ON_HEROKU = os.environ.get('ON_HEROKU')
 UPLOAD_FOLDER = 'uploads'
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config.from_envvar('APP_SETTINGS')
+app.config['PORT'] = os.environ.get('PORT')
+app.config["ON_HEROKU"] = os.environ.get("ON_HEROKU")
+app.config.from_pyfile('settings.py')
 
 #Your Route
 @app.route("/", methods=['GET', 'POST'])
@@ -63,7 +67,8 @@ if __name__ == "__main__":
     if ON_HEROKU:
         # get the heroku port
           # as per OP comments default is 17995
-        print(os.environ.get["PORT"])
-        app.run(port = int(os.environ.get('PORT')),debug=True,use_reloader=False)
+        print(app.config['PORT'] , app.config["ON_HEROKU"])
+        app.run(port = app.config['PORT'],debug=True,use_reloader=False)
     else:
+        #print(os.environ.get("PORT") , os.environ.get("ON_HEROKU"))
         app.run()
