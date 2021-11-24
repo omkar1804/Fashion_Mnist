@@ -64,7 +64,7 @@ def create_app():
     return app
 
 if __name__ == "__main__":
-    if ON_HEROKU:
+    if ON_HEROKU=="True":
         # get the heroku port
           # as per OP comments default is 17995
         print(app.config['PORT'] , app.config["ON_HEROKU"])
