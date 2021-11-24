@@ -9,6 +9,8 @@ from keras_preprocessing import image
 from keras import models
 from flask import Flask, flash, request, make_response, render_template, send_from_directory
 
+ON_HEROKU = os.environ.get('ON_HEROKU')
+
 #Your directory name where images should be uploaded
 UPLOAD_FOLDER = 'uploads'
 app = Flask(__name__)
@@ -58,4 +60,9 @@ def create_app():
     return app
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0",port=os.environ.get["PORT"],debug=True,use_reloader=False)
+    if ON_HEROKU:
+        # get the heroku port
+          # as per OP comments default is 17995
+        app.run(host="0.0.0.0",port = int(os.environ.get('PORT', 17995)),debug=True,use_reloader=False)
+    else:
+        app.run(host="0.0.0.0",port=5000,debug=True,use_reloader=False)
