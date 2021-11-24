@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>FASHION MNIST</title>
+</head>
+
+<script>
+    function showloading() {
+        image = document.getElementById('loading_image');
+        image.style.display = 'inline'
+    }
+</script>
+
+
+
+<body>
+    <div class="container-fluid mycont "
+        style=" text-align: center; height: 100vh;  text-transform: uppercase; background-image: linear-gradient(#ffcf15, rgb(235, 201, 137));">
+        <div class="container flex shadow rounded-3" style="background-color: purple;margin-top: 5%;width: 60%;padding: 10px 0;border-radius: 15px;">
+        <div class="card p-2">
+            <h1 style="margin: auto;width: 80%; text-align: center; margin-top: 50px;  text-transform: uppercase">
+                <b style="color: yellow;">Fashion Mnist</b></h1>
+            <div style="text-align: center; margin-top: 20px">
+                <img style="max-width: 600px; max-height: 500px;" src="../static/images/cover.png" />
+            </div>
+            <br>
+            <form action="/" method="POST" enctype="multipart/form-data"
+                style="margin-top: 50px; width: 60%; text-align: center; margin: auto;" onsubmit="showloading()">
+                <span class="text-left btn btn-default btn-file">
+                    Upload <input type="file" name="image">
+                </span>
+                <span class="text-right">
+                    <input type="submit" value="Predict" class="btn btn-primary" style="background-color: yellow;color: purple;">
+                </span>
+
+            </form>
+            <div style="text-align: center">
+                <img id="loading_image" style="display: none" src="../static/images/load.gif">
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+
+</html>

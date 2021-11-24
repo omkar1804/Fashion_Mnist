@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fashion Mnist </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid mycont "
+        style=" text-align: center; height: 100vh;  text-transform: uppercase; background-image: linear-gradient(#ffcf15, rgb(235, 201, 137));">
+        <div class="container flex shadow rounded-3" style="background-color: purple;margin-top: 5%;width: 60%;padding: 10px 0;border-radius: 15px;color: yellow;">
+            <h4 style="margin: auto;width: 80%; text-align: center; margin-top: 20px;  text-transform: uppercase;">Fashion
+                Mnist </h4>
+            <div style="width: 90%; margin: auto; text-align: center">
+                <img src="{{ url_for('send_file', filename=image_file_name)}}"
+                    style="width: 200px; height: 200px; margin-top: 30px; margin-bottom: 10px">
+                <p style="font-style: italic">{{ image_file_name }}</p>
+    
+    
+                <h3><b>I'm <span style="color: green;"></span> sure this is a
+                        <span style="color: yellow;text-decoration: underline;">{{ val }}</span></b></h3>
+                <a href="/" style="color: yellow; text-decoration: none;">Back to Home</a>
+            </div>
+        </div>
+        
+
+    </div>
+
+</body>
+
+</html>
